@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import java.util.Date;
 
 @Entity
-@DiscriminatorValue("ADMIN")
 public class Admin extends User {
 
 

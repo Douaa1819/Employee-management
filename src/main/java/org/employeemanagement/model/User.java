@@ -3,7 +3,10 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 
+
 @Entity
+@Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
 
     @Id
@@ -13,11 +16,14 @@ public abstract class User {
     private String name;
     private String email;
     private String password;
+    @Temporal(TemporalType.DATE)
     private Date birthDate;
 
     public User() {
 
     }
+
+
 
     public User(String name, String email, String password, Date birthDate) {
         this.name = name;
@@ -67,7 +73,9 @@ public abstract class User {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {

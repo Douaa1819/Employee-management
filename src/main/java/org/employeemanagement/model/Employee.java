@@ -7,7 +7,6 @@ import java.util.Date;
 
 
 @Entity
-@DiscriminatorValue("EMPLOYEE")
 public class Employee extends User {
 
     private String department;
@@ -35,6 +34,7 @@ public class Employee extends User {
         this.socialSecurityNumber = socialSecurityNumber;
 
     }
+
 
 
     public String getDepartment() {
