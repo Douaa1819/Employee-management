@@ -1,9 +1,6 @@
 package org.employeemanagement.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -17,8 +14,10 @@ public class JobOffer {
     private String description;
     private Date postDate;
     private boolean status;
+    @ManyToOne
+    private Recruiter recruiter;
 
-public JobOffer() {
+    public JobOffer() {
 
 }
     public JobOffer( String title, String description, Date postDate, boolean status) {
@@ -28,6 +27,16 @@ public JobOffer() {
         this.postDate = postDate;
         this.status = status;
     }
+
+
+    public Recruiter getRecruiter() {
+        return recruiter;
+    }
+
+    public void setRecruiter(Recruiter recruiter) {
+        this.recruiter = recruiter;
+    }
+
 
     public Long getId() {
         return id;
