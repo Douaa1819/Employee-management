@@ -17,7 +17,7 @@ public class JobOffreRepositoryImpl implements JobOffreRepository {
         try {
             entityManager= JpaUtil.getInstance().getEntityManagerFactory().createEntityManager();
             entityManager.getTransaction().begin();
-            entityManager.persist(jobOffer);
+            entityManager.merge(jobOffer);
             entityManager.getTransaction().commit();
             return jobOffer;
 

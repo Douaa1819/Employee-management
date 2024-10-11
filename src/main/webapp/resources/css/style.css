@@ -1,113 +1,150 @@
 
-body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-.navbar {
-    background-color: #1f1f1f;
-    padding: 20px 0;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+body {
+    background-color: #121212;
+    color: #e0e0e0;
 }
-
-.navbar .logo {
-    color: #ffffff;
-    font-size: 24px;
-}
-
-.nav-links {
-    list-style: none;
-    padding: 0;
-    display: inline-flex;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    background-color: #333333;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-
 
 .container {
-    width: 90%;
+    max-width: 1000px;
     margin: 50px auto;
-    background-color: #1a1a1a;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 }
 
-.employee-table {
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+/* Flash message styles */
+.flash-message {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.flash-message.success {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
+.flash-message.error {
+    background-color: #f44336;
+    color: #ffffff;
+}
+
+
+.styled-table {
     width: 100%;
     border-collapse: collapse;
-}
-
-.employee-table th, .employee-table td {
-    padding: 15px;
+    margin: 15px 0;
+    font-size: 16px;
     text-align: left;
-    color: #ffffff;
-    border-bottom: 1px solid #333333;
 }
 
-.employee-table th {
-    background-color: #333333;
+.styled-table th, .styled-table td {
+    padding: 12px;
+    border-bottom: 1px solid #444;
 }
 
-.employee-table tr:hover {
-    background-color: #252525;
+.styled-table thead {
+    background-color: #333;
+    color: #FFFFFF;
 }
 
-.btn {
-    padding: 10px 15px;
-    color: #ffffff;
-    border: none;
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #222;
+}
 
-    border-radius: 5px;
+.styled-table tbody tr:hover {
+    background-color: #444;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.btn.edit-btn {
-    background-color: #28a745;
+.action-btn {
+    padding: 8px 12px;
     text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 0 3px;
+    transition: background-color 0.3s;
 }
 
-.btn.delete-btn {
-    background-color: #dc3545;
+.edit-btn {
+    background-color: #007BFF;
 }
 
-.btn:hover {
+.delete-btn {
+    background-color: #DC3545;
+}
+
+.add-btn {
+    background-color: #28A745;
+}
+
+.edit-btn:hover {
     background-color: #0056b3;
 }
 
+.delete-btn:hover {
+    background-color: #c82333;
+}
 
-.alert {
-    padding: 15px;
+.add-btn:hover {
+    background-color: #218838;
+}
+
+
+.add-new-btn {
+    justify-content: flex-end;
+    text-align: end;
     margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
 }
 
-.alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .styled-table {
+        font-size: 14px;
+    }
+
+    .styled-table th, .styled-table td {
+        padding: 8px;
+    }
+
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
 }
 
-.alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
-}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
 
+    .styled-table {
+        font-size: 12px;
+    }
+}

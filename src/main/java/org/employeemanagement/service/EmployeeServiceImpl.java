@@ -4,7 +4,9 @@ import org.employeemanagement.exception.DatabaseOperationException;
 import org.employeemanagement.exception.IdNotFoundException;
 import org.employeemanagement.exception.InvalidInputException;
 import org.employeemanagement.model.Employee;
+import org.employeemanagement.repository.EmployeeRepositoryImpl;
 import org.employeemanagement.repository.interfaces.EmployeeRepository;
+import org.employeemanagement.repository.interfaces.JobOffreRepository;
 import org.employeemanagement.service.interfaces.EmployeeService;
 
 import java.util.List;
@@ -12,6 +14,11 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
   private EmployeeRepository employeeRepository;
+
+
+    public EmployeeServiceImpl() {
+        this.employeeRepository = new EmployeeRepositoryImpl();
+    }
     @Override
     public Employee addEmployee(Employee employee) {
         validateEmployee(employee);

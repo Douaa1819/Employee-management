@@ -77,4 +77,7 @@ public class JobOffer {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+
+
 }

@@ -4,8 +4,15 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.employeemanagement.model.Employee;
+import org.employeemanagement.model.JobOffer;
 import org.employeemanagement.repository.EmployeeRepositoryImpl;
+import org.employeemanagement.repository.JobOffreRepositoryImpl;
+import org.employeemanagement.repository.interfaces.JobOffreRepository;
+import org.employeemanagement.service.JobOffreServiceImpl;
+import org.employeemanagement.service.interfaces.JobOffreService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +25,7 @@ public class Main {
 //    entityManager.getTransaction().commit();
 
     public static void main(String[] args) {
-        EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
+       EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
 
         // Définir les valeurs pour le nouvel employé
 //        String name = "Douaa";
@@ -42,7 +49,7 @@ public class Main {
 //        System.out.println("Employé créé : " + savedEmployee.getId() + " - " + savedEmployee.getName() + " (" + savedEmployee.getPosition() + ")");
 
 
-        // 2. Récupérer tous les employés
+//         2. Récupérer tous les employés
 //        List<Employee> allEmployees = employeeRepository.findAll();
 //        System.out.println("Liste des employés : ");
 //        for (Employee employee : allEmployees) {
@@ -82,6 +89,77 @@ public class Main {
 //            System.out.println("Aucun employé trouvé avec l'ID " + employeeIdToUpdate);
 //        }
 //    }
+
+
+
+
+
+
+            ///job offre
+
+
+//        JobOffreRepository jobOffreRepository = new JobOffreRepositoryImpl(); // Assurez-vous que cette classe est bien implémentée
+//        JobOffreService jobOffreService = new JobOffreServiceImpl(jobOffreRepository); // Injection de dépendance // Assurez-vous que JobOffreServiceImpl est correctement implémenté.
+//        Scanner scanner = new Scanner(System.in);
+
+        // Ajout d'une offre d'emploi
+//        System.out.println("Ajoutez une nouvelle offre d'emploi :");
+//        JobOffer jobOffre = new JobOffer(); // Créer un nouvel objet JobOffre
+//        System.out.print("Titre : ");
+//        jobOffre.setTitle(scanner.nextLine());
+//        System.out.print("Description : ");
+//        jobOffre.setDescription(scanner.nextLine());
+//        System.out.print("Date : ");
+//        System.out.print("Date de publication (jj/MM/aaaa) : ");
+//        String dateInput = scanner.nextLine();
+//        try {
+//
+//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//            Date postDate = dateFormat.parse(dateInput);
+//            jobOffre.setPostDate(postDate);
+//        } catch (ParseException e) {
+//            System.out.println("Format de date invalide. La date ne sera pas définie.");
+//        }
+//        jobOffreService.addJobOffer(jobOffre);
+//        System.out.println("Offre d'emploi ajoutée avec succès!");
+//
+//
+//        System.out.println("Liste de toutes les offres d'emploi :");
+//        List<JobOffer> jobOffers = jobOffreService.getAllJobOffers();
+//        for (JobOffer offre : jobOffers) {
+//            System.out.println(offre);
+//        }
+
+//        System.out.print("Entrez l'ID de l'offre d'emploi à mettre à jour : ");
+//        Long updateId = scanner.nextLong();
+//        scanner.nextLine(); // Consomme le saut de ligne
+//        JobOffer jobOffreToUpdate = jobOffreService.getJobOfferById(updateId);
+//
+//        if (jobOffreToUpdate != null) {
+//            System.out.print("Nouveau titre (laisser vide pour conserver l'ancien) : ");
+//            String newTitle = scanner.nextLine();
+//            if (!newTitle.isEmpty()) {
+//                jobOffreToUpdate.setTitle(newTitle);
+//            }
+//            System.out.print("Nouvelle description (laisser vide pour conserver l'ancienne) : ");
+//            String newDescription = scanner.nextLine();
+//            if (!newDescription.isEmpty()) {
+//                jobOffreToUpdate.setDescription(newDescription);
+//            }
+//            // Mettre à jour d'autres champs si nécessaire
+//            jobOffreService.updateJobOffer(jobOffreToUpdate); // Mettre à jour l'offre d'emploi
+//            System.out.println("Offre d'emploi mise à jour avec succès!");
+//        } else {
+//            System.out.println("Aucune offre d'emploi trouvée avec cet ID.");
+//        }
+//
+//        // Suppression d'une offre d'emploi
+//        System.out.print("Entrez l'ID de l'offre d'emploi à supprimer : ");
+//        Long deleteId = scanner.nextLong();
+//        jobOffreService.deleteJobOffer(deleteId);
+//        System.out.println("Offre d'emploi supprimée avec succès!");
+//
+//        scanner.close();
 
 
     }}

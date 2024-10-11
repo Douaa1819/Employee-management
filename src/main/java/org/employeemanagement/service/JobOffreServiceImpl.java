@@ -11,6 +11,11 @@ import java.util.List;
 public class JobOffreServiceImpl implements JobOffreService {
     private JobOffreRepository jobOffreRepository;
 
+    public JobOffreServiceImpl(JobOffreRepository jobOffreRepository) {
+        this.jobOffreRepository = jobOffreRepository;
+    }
+
+
     @Override
     public JobOffer addJobOffer(JobOffer jobOffer) {
         validateJobOffer(jobOffer);
@@ -69,8 +74,5 @@ public class JobOffreServiceImpl implements JobOffreService {
             throw new InvalidInputException("JobOffer post date cannot be null");
         }
 
-        if (jobOffer.getPostDate().after(new Date())) {
-            throw new InvalidInputException("JobOffer post date cannot be in the future");
-        }
     }
 }

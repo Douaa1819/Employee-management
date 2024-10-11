@@ -1,0 +1,20 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <persistence-unit name="employeesmanagment">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>org.employeemanagement.model.User</class>
+        <class>org.employeemanagement.model.Employee</class>
+        <class>org.employeemanagement.model.Admin</class>
+        <class>org.employeemanagement.model.Recruiter</class>
+        <class>org.employeemanagement.model.Application</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/company_employees"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,7 +1,4 @@
 package org.employeemanagement.unitTest;
-
-import jakarta.transaction.Transactional;
-import org.employeemanagement.exception.IdNotFoundException;
 import org.employeemanagement.model.Employee;
 import org.employeemanagement.repository.interfaces.EmployeeRepository;
 import org.employeemanagement.service.EmployeeServiceImpl;
@@ -77,7 +74,6 @@ public class EmployeeTest {
         existingEmployee.setSoldConge("10");
         existingEmployee.setSocialSecurityNumber("123-45-6789");
 
-        // Create an updated employee object
         Employee updatedEmployee = new Employee();
         updatedEmployee.setId(1L);
         updatedEmployee.setName("Updated Name");
@@ -95,10 +91,10 @@ public class EmployeeTest {
 
         when(employeeRepository.update(any(Employee.class))).thenReturn(updatedEmployee);
 
-        // Act
+
         Employee result = employeeService.updateEmployee(updatedEmployee);
 
-        // Assert
+
         assertEquals(updatedEmployee.getName(), result.getName());
         assertEquals(updatedEmployee.getEmail(), result.getEmail());
         assertEquals(updatedEmployee.getPosition(), result.getPosition());
