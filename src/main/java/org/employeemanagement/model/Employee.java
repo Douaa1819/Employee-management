@@ -2,6 +2,7 @@ package org.employeemanagement.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 
 import java.util.Date;
 
@@ -16,6 +17,8 @@ public class Employee extends User {
     private double salary;
     private String soldConge;
     private String socialSecurityNumber;
+    @ManyToOne
+    private Admin admin;
 
 
 
@@ -93,6 +96,12 @@ public class Employee extends User {
         this.socialSecurityNumber = socialSecurityNumber;
     }
 
+    public Admin getAdmin() {
+        return admin;
+    }
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 
     @Override
     public String toString() {

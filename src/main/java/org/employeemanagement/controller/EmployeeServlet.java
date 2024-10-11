@@ -45,7 +45,7 @@ public class EmployeeServlet extends HttpServlet {
         } else if (action.equals("update")) {
             updateEmployee(request, response);
         } else {
-            addEmployee(request, response);
+            listEmployees(request, response);
         }
     }
 
@@ -103,9 +103,10 @@ public class EmployeeServlet extends HttpServlet {
             employeeService.updateEmployee(employee);
             request.getSession().setAttribute("successMessage", "L'employé a été mis a jour avec succès !");
             response.sendRedirect(request.getContextPath() + "/employee?action=list");
+
         } catch (Exception e) {
             e.printStackTrace();
-            request.getSession().setAttribute("errorMessage", "Erreur lors de mis a jour de l'employé: " + e.getMessage());
+            request.getSession().setAttribute("errorMessage", "Erreur lors de l'update job offre: " + e.getMessage());
             response.sendRedirect(request.getContextPath() + "/employee?action=edit");
         }
     }
@@ -115,11 +116,11 @@ public class EmployeeServlet extends HttpServlet {
             Long id = Long.parseLong(request.getParameter("id"));
             employeeService.deleteEmployee(id);
 
-            response.sendRedirect(request.getContextPath() + "/employee?action=list");
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to delete employee");
+                response.sendRedirect(request.getContextPath() + "/employee?action=list");
+            } catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to delete employee");
+            }
         }
-    }
 
     private Employee extractEmployeeFromRequest(HttpServletRequest request) {
         try {

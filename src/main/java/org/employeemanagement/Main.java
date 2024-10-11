@@ -5,11 +5,16 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.employeemanagement.model.Employee;
 import org.employeemanagement.model.JobOffer;
+import org.employeemanagement.model.Recruiter;
 import org.employeemanagement.repository.EmployeeRepositoryImpl;
 import org.employeemanagement.repository.JobOffreRepositoryImpl;
+import org.employeemanagement.repository.RecruiterRepositoryImpl;
 import org.employeemanagement.repository.interfaces.JobOffreRepository;
+import org.employeemanagement.repository.interfaces.RecruiterRepository;
 import org.employeemanagement.service.JobOffreServiceImpl;
+import org.employeemanagement.service.RecruiterServiceImpl;
 import org.employeemanagement.service.interfaces.JobOffreService;
+import org.employeemanagement.service.interfaces.RecruiterService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,7 +30,10 @@ public class Main {
 //    entityManager.getTransaction().commit();
 
     public static void main(String[] args) {
-       EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
+//       EmployeeRepositoryImpl employeeRepository = new EmployeeRepositoryImpl();
+//        RecruiterService recruiterService;
+//        recruiterRepository = new RecruiterRepositoryImpl(); // Ensure this is initialized properly
+//        recruiterService = new RecruiterServiceImpl(recruiterRepository);
 
         // Définir les valeurs pour le nouvel employé
 //        String name = "Douaa";
@@ -101,8 +109,8 @@ public class Main {
 //        JobOffreRepository jobOffreRepository = new JobOffreRepositoryImpl(); // Assurez-vous que cette classe est bien implémentée
 //        JobOffreService jobOffreService = new JobOffreServiceImpl(jobOffreRepository); // Injection de dépendance // Assurez-vous que JobOffreServiceImpl est correctement implémenté.
 //        Scanner scanner = new Scanner(System.in);
-
-        // Ajout d'une offre d'emploi
+////
+////         Ajout d'une offre d'emploi
 //        System.out.println("Ajoutez une nouvelle offre d'emploi :");
 //        JobOffer jobOffre = new JobOffer(); // Créer un nouvel objet JobOffre
 //        System.out.print("Titre : ");
@@ -116,13 +124,16 @@ public class Main {
 //
 //            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 //            Date postDate = dateFormat.parse(dateInput);
+//
+//            Recruiter recruiter = recruiterService.findById(1L);
+//            jobOffre.setRecruiter(recruiter);
 //            jobOffre.setPostDate(postDate);
 //        } catch (ParseException e) {
 //            System.out.println("Format de date invalide. La date ne sera pas définie.");
 //        }
 //        jobOffreService.addJobOffer(jobOffre);
 //        System.out.println("Offre d'emploi ajoutée avec succès!");
-//
+
 //
 //        System.out.println("Liste de toutes les offres d'emploi :");
 //        List<JobOffer> jobOffers = jobOffreService.getAllJobOffers();

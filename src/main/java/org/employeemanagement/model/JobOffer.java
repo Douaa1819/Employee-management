@@ -12,9 +12,11 @@ public class JobOffer {
     private Long id;
     private String title;
     private String description;
+    @Temporal(TemporalType.DATE)
     private Date postDate;
     private boolean status;
     @ManyToOne
+    @JoinColumn(name = "recruiter_id")
     private Recruiter recruiter;
 
     public JobOffer() {

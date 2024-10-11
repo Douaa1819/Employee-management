@@ -4,8 +4,6 @@ import org.employeemanagement.exception.InvalidInputException;
 import org.employeemanagement.model.JobOffer;
 import org.employeemanagement.repository.interfaces.JobOffreRepository;
 import org.employeemanagement.service.interfaces.JobOffreService;
-
-import java.util.Date;
 import java.util.List;
 
 public class JobOffreServiceImpl implements JobOffreService {
@@ -48,10 +46,11 @@ public class JobOffreServiceImpl implements JobOffreService {
         if (existingJobOffer == null) {
             throw new InvalidInputException("Cannot update. JobOffer with ID " + jobOffer.getId() + " not found");
         }
+
         existingJobOffer.setTitle(jobOffer.getTitle());
         existingJobOffer.setDescription(jobOffer.getDescription());
-        existingJobOffer.setStatus(false);
-        return jobOffreRepository.save(jobOffer);
+        existingJobOffer.setStatus(jobOffer.isStatus());
+        return jobOffreRepository.update(existingJobOffer);
     }
 
     /**
