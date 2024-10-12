@@ -23,7 +23,7 @@ This **Employee Management System** aims to enhance HR processes for a growing c
 - **Repository** and **Service** layers
 
 ## 📊 Class Diagram
-[ViewClass Diagram](https://lucid.app/lucidchart/f53bccdc-e194-4cf1-9a8f-1827929e486e/edit?view_items=MYSfFlOmoGkX&invitationId=inv_7adfdd25-9c07-4819-a4b5-6866750f1ad6)
+[View Class Diagram](https://lucid.app/lucidchart/f53bccdc-e194-4cf1-9a8f-1827929e486e/edit?view_items=MYSfFlOmoGkX&invitationId=inv_7adfdd25-9c07-4819-a4b5-6866750f1ad6)
 
 ## 📜 License
 This project is licensed under the MIT License.
