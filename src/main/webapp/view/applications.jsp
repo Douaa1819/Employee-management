@@ -1,104 +1,46 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/css/application.css">
     <title>Job Applications</title>
-    <style>
-        /* Basic styles for the page and modal */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .modal-content {
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-form {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close:hover, .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+
 </head>
 <body>
-<h1>Job Applications</h1>
+<h1>🌟 Job Applications 🌟</h1>
+
+<div class="welcome-message">
+    Welcome to your next career opportunity! We are excited to assist you in your job search.
+</div>
+
+<div class="image-container">
+    <img src="https://emeritus.org/in/wp-content/uploads/sites/3/2022/10/9-Things-to-Keep-in-Mind-When-Applying-for-Job.jpg.optimal.jpg" alt="Job Application Image" style="width: 100%; max-width: 400px; border-radius: 10px;">
+</div>
 
 <c:if test="${not empty message}">
-    <div style="color: green;">${message}</div>
+    <div class="flash-message success-message" style="display: block;">${message}</div>
+</c:if>
+<c:if test="${not empty errorMessage}">
+    <div class="flash-message error-message" style="display: block;">${errorMessage}</div>
+</c:if>
+<c:if test="${not empty successMessage}">
+    <div class="flash-message success-message" style="display: block;">${successMessage}</div>
 </c:if>
 
-<table>
-    <thead>
-    <!-- Display error messages -->
-    <c:if test="${not empty errorMessage}">
-        <tr>
-            <td colspan="3" style="color: red;">${errorMessage}</td>
-        </tr>
-    </c:if>
-
-    <!-- Display success messages -->
-    <c:if test="${not empty successMessage}">
-        <tr>
-            <td colspan="3" style="color: green;">${successMessage}</td>
-        </tr>
-    </c:if>
-
-    <tr>
-        <th>Job Title</th>
-        <th>Description</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="job-container">
     <c:forEach var="jobOffer" items="${jobOffers}">
-        <tr>
-            <td>${jobOffer.title}</td>
-            <td>${jobOffer.description}</td>
-            <td>
-                <a href="javascript:void(0);" onclick="openApplyModal(${jobOffer.id})">Apply</a>
-            </td>
-        </tr>
+        <div class="job-card">
+            <div class="job-title">${jobOffer.title}</div>
+            <div class="job-description">${jobOffer.description}</div>
+            <a href="javascript:void(0);" class="apply-btn" onclick="openApplyModal(${jobOffer.id})">
+                <i class="fas fa-paper-plane"></i> Apply Now
+            </a>
+        </div>
     </c:forEach>
-    </tbody>
-</table>
+</div>
 
 <div id="applyModal" style="display:none;">
     <div class="modal-content">
@@ -106,7 +48,7 @@
             <span class="close" onclick="closeApplyModal()">&times;</span>
             <h2>Apply for Job</h2>
             <form action="application" method="post" enctype="multipart/form-data">
-            <label for="name">Nom:</label>
+                <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required><br><br>
 
                 <label for="email">Email:</label>
@@ -124,33 +66,36 @@
                 <label for="document">Upload Document:</label>
                 <input type="file" id="document" name="document" required><br><br>
 
-                <!-- Add the hidden input for jobOfferId -->
                 <input type="hidden" id="jobOfferId" name="jobOfferId" value="">
 
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="apply-btn">
             </form>
         </div>
     </div>
 </div>
 
-
 <script>
     function openApplyModal(jobOfferId) {
-        document.getElementById('jobOfferId').value = jobOfferId; // Set the job offer ID in the hidden input
-        document.getElementById('applyModal').style.display = "block"; // Show the modal
+        document.getElementById('jobOfferId').value = jobOfferId;
+        document.getElementById('applyModal').style.display = "block";
     }
 
     function closeApplyModal() {
-        document.getElementById('applyModal').style.display = "none"; // Hide the modal
+        document.getElementById('applyModal').style.display = "none";
     }
 
-    // Close the modal when clicking outside of it
-    window.onclick = function(event) {
-        var modal = document.getElementById('applyModal');
-        if (event.target === modal) {
-            closeApplyModal();
-        }
-    }
+
+    window.onload = function() {
+        const flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(msg => {
+            if (msg.style.display === 'block') {
+                setTimeout(() => {
+                    msg.style.opacity = '0';
+                    setTimeout(() => msg.style.display = 'none', 500);
+                }, 3000);
+            }
+        });
+    };
 </script>
 </body>
 </html>

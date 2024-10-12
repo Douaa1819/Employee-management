@@ -91,16 +91,16 @@ public class ApplicationServlet extends HttpServlet {
             return;
         }
 
-        // Enregistrer le fichier dans l'emplacement spécifié
-        String uploadDir = "C:/Users/ycode/Downloads/"; // Change as needed
-// Ensure the directory exists
+
+        String uploadDir = "C:/Users/ycode/Downloads/";
+
         Files.createDirectories(Paths.get(uploadDir));
 
         String fileName = documentPart.getSubmittedFileName();
-        String uniqueFileName = System.currentTimeMillis() + "_" + fileName; // Create a unique filename
-        String uploadedFilePath = uploadDir + uniqueFileName; // Full path for the uploaded file
+        String uniqueFileName = System.currentTimeMillis() + "_" + fileName;
+        String uploadedFilePath = uploadDir + uniqueFileName;
 
-// Save the uploaded file
+
         try (InputStream fileContent = documentPart.getInputStream()) {
             Path path = Paths.get(uploadedFilePath);
             Files.copy(fileContent, path, StandardCopyOption.REPLACE_EXISTING);
@@ -112,7 +112,6 @@ public class ApplicationServlet extends HttpServlet {
         }
 
 
-        // Créer une nouvelle candidature
         Application application = new Application();
         application.setName(name);
         application.setEmail(email);
@@ -120,19 +119,19 @@ public class ApplicationServlet extends HttpServlet {
         application.setSkills(skills);
         application.setDocument(uploadedFilePath);
 
-        // Sauvegarder l'Application
+
         application = applicationService.save(application);
 
-        // Créer une nouvelle ApplicationJobOffer
+
         ApplicationJobOffer applicationJobOffer = new ApplicationJobOffer();
         applicationJobOffer.setJobOffer(jobOffer);
         applicationJobOffer.setApplication(application);
-        applicationJobOffer.setStatus(false); // Définir status sur false par défaut
+        applicationJobOffer.setStatus(false);
 
-        // Enregistrer l'offre d'emploi de la candidature
+
         applicationJobOfferService.save(applicationJobOffer);
 
-        // Définir un message de succès
+
         request.getSession().setAttribute("successMessage", "Application submitted successfully!");
         response.sendRedirect("application");
     }
