@@ -97,6 +97,30 @@ textarea:focus {
     background-color: rgba(255, 204, 0, 0.57);
 }
 
+
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+
+
+
+
 /* Styles pour le lien */
 a {
     display: block;

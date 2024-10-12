@@ -6,19 +6,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="./resources/css/cartsJob.css">
-  <title><c:choose>
-    <c:when test="${not empty jobOffer}">Edit Job Offer</c:when>
-    <c:otherwise>Add Job Offer</c:otherwise>
-  </c:choose></title>
+  <title>Add Job Offer</title>
 </head>
 <body>
 <div class="container">
-  <h2><c:choose>
-    <c:when test="${not empty jobOffer}">Edit Job Offer</c:when>
-    <c:otherwise>Add Job Offer</c:otherwise>
-  </c:choose></h2>
+  <h2>Add Job Offer</h2>
 
   <c:if test="${not empty successMessage}">
     <div class="alert alert-success">${successMessage}</div>
@@ -27,44 +21,36 @@
     <div class="alert alert-danger">${errorMessage}</div>
   </c:if>
 
-
   <form action="joboffre" method="post">
-    <input type="hidden" name="action" value="<c:choose>
-            <c:when test="${not empty jobOffer}">edit</c:when>
-            <c:otherwise>add</c:otherwise>
-        </c:choose>">
-    <input type="hidden" name="id" value="${jobOffer.id}">
+    <input type="hidden" name="action" value="add">
     <input type="hidden" name="recruiter_id" value="14">
 
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" name="title" id="title" value="${jobOffer.title}" class="form-control" required>
+      <input type="text" name="title" id="title" class="form-control" required>
     </div>
 
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea name="description" id="description" class="form-control" required>${jobOffer.description}</textarea>
+      <textarea name="description" id="description" class="form-control" required></textarea>
     </div>
 
     <div class="form-group">
       <label for="postDate">Post Date</label>
-      <input type="date" name="postDate" id="postDate" value="${jobOffer.postDate}" class="form-control" required>
+      <input type="date" name="postDate" id="postDate" class="form-control" required>
     </div>
 
     <div class="form-group">
       <label for="status">Status</label>
       <select name="status" id="status" class="form-control" required>
-        <option value="Open" ${jobOffer.status == 'Open' ? 'selected' : ''}>Open</option>
-        <option value="Closed" ${jobOffer.status == 'Closed' ? 'selected' : ''}>Closed</option>
+        <option value="Open">Open</option>
+        <option value="Closed">Closed</option>
       </select>
     </div>
 
     <div class="form-group">
       <button type="submit" class="btn btn-primary">
-        <i class="fas fa-plus"></i> <c:choose>
-        <c:when test="${not empty jobOffer}">Update Job Offer</c:when>
-        <c:otherwise>Add Job Offer</c:otherwise>
-      </c:choose>
+        <i class="fas fa-plus"></i> Add Job Offer
       </button>
     </div>
   </form>

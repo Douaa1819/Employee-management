@@ -34,7 +34,11 @@
                 <h3>${jobOffer.title}</h3>
                 <p class="posted-date"><strong>Posted on:</strong> ${jobOffer.postDate}</p>
                 <p>${jobOffer.description}</p>
-                <p><strong>Status:</strong> ${jobOffer.status ? 'Active' : 'Inactive'}</p>
+                <p>
+                    <span style="color: ${jobOffer.status == 'Open' ? 'green' : 'red'}; font-weight: bold;">
+                            ${jobOffer.status == 'Open' ? 'Active' : 'Inactive'}
+                    </span>
+                </p>
 
                 <div class="card-actions">
                     <a href="joboffre?action=edit&id=${jobOffer.id}" class="btn btn-secondary"><i class="fas fa-edit"></i> Edit</a>

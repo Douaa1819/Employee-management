@@ -6,6 +6,7 @@
         <class>org.employeemanagement.model.Employee</class>
         <class>org.employeemanagement.model.Admin</class>
         <class>org.employeemanagement.model.Recruiter</class>
+        <class>org.employeemanagement.model.ApplicationJobOffer</class>
         <class>org.employeemanagement.model.Application</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>

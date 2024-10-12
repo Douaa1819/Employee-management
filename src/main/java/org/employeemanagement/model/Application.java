@@ -2,7 +2,9 @@ package org.employeemanagement.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Application extends User {
@@ -12,17 +14,25 @@ public class Application extends User {
 
     private String document;
     private String skills;
-    private boolean status;
 
+    @OneToMany(mappedBy = "application")
+    private List<ApplicationJobOffer> jobOffers = new ArrayList<>();
+
+    public List<ApplicationJobOffer> getJobOffers() {
+        return jobOffers;
+    }
+
+    public void setJobOffers(List<ApplicationJobOffer> jobOffers) {
+        this.jobOffers = jobOffers;
+    }
     public Application( ) {
 
     }
 
-    public Application(String name, String email, String password, Date birthDate, String document, String skills, boolean status) {
+    public Application(String name, String email, String password, Date birthDate, String document, String skills) {
         super(name, email, password, birthDate);
         this.document = document;
         this.skills = skills;
-        this.status = status;
     }
 
 
@@ -43,11 +53,5 @@ public class Application extends User {
         this.skills = skills;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 }

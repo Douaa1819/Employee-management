@@ -86,6 +86,8 @@ h2 {
 .btn-primary {
     background-color: #007bff;
 }
+
+
 .btn-primary:hover {
     background-color: #0056b3;
     transform: scale(1.05);

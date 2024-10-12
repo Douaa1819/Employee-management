@@ -2,7 +2,9 @@ package org.employeemanagement.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table( name="job-offre")
@@ -18,7 +20,16 @@ public class JobOffer {
     @ManyToOne
     @JoinColumn(name = "recruiter_id")
     private Recruiter recruiter;
+    @OneToMany(mappedBy = "jobOffer")
+    private List<ApplicationJobOffer> applications = new ArrayList<>();
 
+    public List<ApplicationJobOffer> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(List<ApplicationJobOffer> applications) {
+        this.applications = applications;
+    }
     public JobOffer() {
 
 }
