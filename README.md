@@ -1,39 +1,38 @@
-## 👨‍💼 Employee Management System
+# 👨‍💼 Employee Management System V2
 
-This project is a simple web application for managing employees, built using **Java EE** and **Hibernate**. It allows for basic employee CRUD operations and follows the **MVC architecture** with well-defined DAO and service layers.
+## Overview
+This **Employee Management System** aims to enhance HR processes for a growing company with over 200 employees. By moving from an inefficient Excel-based system to a centralized Java EE application, we aim to streamline various HR functions.
 
-### 🛠️ Technologies Used
+## 🚀 Features
+- **Employee Management**: Easily manage employee records.
+- **Recruitment**: Publish job offers and track applications.
+- **Leave Management**: Submit and track leave requests.
+- **Family Allowance Calculation**: Automatically calculate allowances.
+- **Reporting**: Generate key reports for management.
+- **Notifications**: Receive alerts for important updates.
 
+
+
+## 🛠️ Technologies Used
 - **Java EE** (JSP, Servlets)
-- **Hibernate** ORM for database interactions
+- **JPA** ORM for database interactions
 - **PostgreSQL** for data storage
 - **Tomcat 10** as the web server
 - **Maven** for dependency management
-- **MVC architecture** for modular code organization
-- **DAO** and **Service** layers
+- **MVC Architecture** for modular code organization
+- **Repository** and **Service** layers
 
-### 🏗️ Architecture
+## 📊 Class Diagram
+[View Class Diagram](https://lucid.app/lucidchart/f53bccdc-e194-4cf1-9a8f-1827929e486e/edit?view_items=MYSfFlOmoGkX&invitationId=inv_7adfdd25-9c07-4819-a4b5-6866750f1ad6)
 
-The project is based on **MVC** architecture:
-- **Model**: Database mappings with Hibernate.
-- **View**: JSP pages for UI.
-- **Controller**: Servlets for request handling.
-- **DAO Layer**: Data access via Hibernate.
-- **Service Layer**: Business logic and data management.
-
-### 🖼️ User Interface Example
-![9d824749-8618-46aa-8e4a-1832b1b9352c](https://github.com/user-attachments/assets/b4ac11c8-695c-4303-9329-4fe42c0398fe)
-
-
-
-### 📄 License
-
+## 📜 License
 This project is licensed under the MIT License.
 
-### 📊 Presentation
+## 📈 Presentation
+[Project Presentation](https://www.canva.com/design/DAGSP4Ce82w/_UKGB7K__KWdkqt-t04pGA/edit)
 
-[Click here to view the project presentation](https://www.canva.com/design/DAGSP4Ce82w/_UKGB7K__KWdkqt-t04pGA/edit)
+## 🗂️ Project Planning
+[View Project Planning](https://douaa123.atlassian.net/jira/software/c/projects/EMV/boards/10/backlog?epics=visible)
 
-### 📄 Planning
+---
 
-[Click here to view the project planning](https://douaa123.atlassian.net/jira/software/c/projects/EM/boards/9/backlog)
