@@ -1,4 +1,4 @@
-# 👨‍💼 Employee Management System
+# 👨‍💼 Employee Management System V2
 
 ## Overview
 This **Employee Management System** aims to enhance HR processes for a growing company with over 200 employees. By moving from an inefficient Excel-based system to a centralized Java EE application, we aim to streamline various HR functions.
