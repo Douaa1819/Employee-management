@@ -6,7 +6,6 @@ import org.employeemanagement.model.JobOffer;
 import org.employeemanagement.repository.ApplicationRepositoryImpl;
 import org.employeemanagement.repository.JobOffreRepositoryImpl;
 import org.employeemanagement.repository.interfaces.ApplicationRepository;
-import org.employeemanagement.repository.interfaces.JobOffreRepository;
 import org.employeemanagement.service.ApplicationJobOfferServiceImpl;
 import org.employeemanagement.service.ApplicationServiceImpl;
 import org.employeemanagement.service.JobOffreServiceImpl;

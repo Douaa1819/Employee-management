@@ -8,7 +8,6 @@ public class ApplicationJobOffer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private boolean status;
 
     @ManyToOne
@@ -21,18 +20,23 @@ public class ApplicationJobOffer {
 
 
     public ApplicationJobOffer() {
-        this.status = false;
-    }
 
-    public ApplicationJobOffer(Application application, JobOffer jobOffer) {
-        this.application = application;
-        this.jobOffer = jobOffer;
-        this.status = false;
     }
 
     public Long getId() {
         return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ApplicationJobOffer(Application application, JobOffer jobOffer , boolean status) {
+        this.application = application;
+        this.jobOffer = jobOffer;
+        this.status = status;
+    }
+
 
     public boolean isStatus() {
         return status;

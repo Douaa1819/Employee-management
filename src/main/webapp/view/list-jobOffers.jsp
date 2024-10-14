@@ -35,8 +35,8 @@
                 <p class="posted-date"><strong>Posted on:</strong> ${jobOffer.postDate}</p>
                 <p>${jobOffer.description}</p>
                 <p>
-                    <span style="color: ${jobOffer.status == 'Open' ? 'green' : 'red'}; font-weight: bold;">
-                            ${jobOffer.status == 'Open' ? 'Active' : 'Inactive'}
+                    <span style="color: ${jobOffer.status == 'Open' ? 'red' : 'green'}; font-weight: bold;">
+                            ${jobOffer.status == 'Open' ? 'Inactive' : 'Active'}
                     </span>
                 </p>
 

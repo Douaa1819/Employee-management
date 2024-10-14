@@ -1,6 +1,7 @@
 package org.employeemanagement.service;
 
 
+import jakarta.transaction.Transactional;
 import org.employeemanagement.model.ApplicationJobOffer;
 import org.employeemanagement.repository.ApplicationJobOfferRepositoryImpl;
 import org.employeemanagement.repository.interfaces.ApplicationJobOfferRepository;
@@ -33,5 +34,23 @@ public class ApplicationJobOfferServiceImpl implements ApplicationJobOfferServic
     @Override
     public void delete(Long id) {
         applicationJobOfferRepository.delete(id);
+    }
+
+    @Override
+    public List<ApplicationJobOffer> findByStatus(Boolean status) {
+        return applicationJobOfferRepository.findByStatus(status);
+    }
+    @Override
+    public void update(ApplicationJobOffer applicationJobOffer) {
+        applicationJobOfferRepository.update(applicationJobOffer);
+    }
+
+    @Override
+    public void acceptApplication(Long applicationId, Long jobOfferId) {
+        applicationJobOfferRepository.acceptApplication(applicationId, jobOfferId);
+    }
+    @Override
+    public ApplicationJobOffer findByJobOfferIdAndApplicationId(Long jobOfferId, Long applicationId) {
+        return applicationJobOfferRepository.findByApplicationIdAndJobOfferId(jobOfferId, applicationId);
     }
 }
